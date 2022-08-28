@@ -1,3 +1,48 @@
+---------------------------------------------------------------------------------------------
+
+# API (find the location)
+
+**Author**: Bayan Bushnaq
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+
+## Overview
+this website created to find the location for any regiond depend on what user entered on the form, I built 
+this website to localy understand how the API works. 
+
+
+## Getting Started
+1- create react app on local machine .
+2- creap a reposotiry on github.
+3- link between the react and the Repo.
+4- create an account on locationIQ website to get your ACCESS TOKEN.
+5- Create a component and build form manually or using bootstrap.
+6- built a function which take the request to locationIQ API server and back with response from it. 
+8-  
+9- passing the dynamically data from the function to render it in the comonent.
+
+## Architecture
+<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+Technologies :
+ 1- React
+ 2- bootstrap.
+ 3- API.
+ 4- axios
+ 5- CSS
+
+## Change Log
+<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
+
+01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+## Credit and Collaborations
+<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+https://github.com/roaaabualeeqa // My constructor Roa'a abu aleeqa.
+https://github.com/Lujain92     // My partner in the project.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +113,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+

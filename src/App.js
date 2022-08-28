@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      display_name : '',
+      lat : '',
+      lon : '',
+      errFlag : false,
+      mapFlag : false
+    }
+  }
+  
+  getLocationData = async (event) => {
+    event.preventDefault();
+    const cityName = event.target.city.value;
+    //send request to the third party
+    const key = 'pk.801afc846e1cf510c6bc02cc07ce67f9';
+    const URL = `https://us1.locationiq.com/v1/search?key=${key}&q=${cityName}&format=json`
+    
+    try 
+    {
+      let resResult = await axios.get(URL);
+      this.setState({
+        display_name : resResult.data[0].display_name,
+        lat : resResult.data[0].lat,
+        lon : resResult.data[0].lon,
+        mapFlag : true
+      })
+    }
+    catch
+    {
+      console.log('err');
+      this.setState({
+        errFlag : true
+      })
+    }
+
+    
+    
+
+  }
+  render(){
+    return(
+      <div>
+        <h1>FIND THE LOCATION USING API SERVER</h1>
+        <form onSubmit={this.getLocationData}>
+          <input type="text" name="city" placeholder='Enter a city'/>
+          <button type='submit'>Explore!</button>
+        </form>
+
+        <h3>Display name : {this.state.display_name}</h3>
+        <p>Longitude : {this.state.lon}</p>
+        <p>Latitude : {this.state.lat}</p>
+
+        {this.state.mapFlag && <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.801afc846e1cf510c6bc02cc07ce67f9&center=${this.state.lat},${this.state.lon}`}></img>}
+        {this.state.errFlag && alert("Error : sorry something went wrong!")}
+        
+      </div>
+    )
+  }
 }
 
 export default App;
